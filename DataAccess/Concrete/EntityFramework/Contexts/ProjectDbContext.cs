@@ -1,4 +1,5 @@
 using Core.Entities.Concrete;
+using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
@@ -45,6 +46,17 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
         public DbSet<MobileLogin> MobileLogins { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<Translate> Translates { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Actor> Actors { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<Director> Directors { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<MovieActor> MovieActors { get; set; }
+        public DbSet<MovieDirector> MovieDirectors { get; set; }
+        public DbSet<FavTypeOfMovie> FavTypeOfMovies { get; set; }
+        public DbSet<MovieGenre> MovieGenres { get; set; }
+
+
 
         protected IConfiguration Configuration { get; }
 

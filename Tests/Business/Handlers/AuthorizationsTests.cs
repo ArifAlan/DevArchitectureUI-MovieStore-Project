@@ -17,10 +17,10 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Tests.Helpers;
-using static ForgotPasswordCommand;
-using static LoginUserQuery;
-using static LoginWithRefreshTokenQuery;
-using static RegisterUserCommand;
+using static Business.Handlers.Authorizations.Commands.ForgotPasswordCommand;
+using static Business.Handlers.Authorizations.Queries.LoginUserQuery;
+using static Business.Handlers.Authorizations.Queries.LoginWithRefreshTokenQuery;
+using static Business.Handlers.Authorizations.Commands.RegisterUserCommand;
 
 namespace Tests.Business.Handlers
 {

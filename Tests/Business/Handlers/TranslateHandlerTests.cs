@@ -13,11 +13,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
-using static CreateTranslateCommand;
-using static DeleteTranslateCommand;
-using static GetTranslateQuery;
-using static GetTranslatesQuery;
-using static UpdateTranslateCommand;
+using static Business.Handlers.Translates.Commands.CreateTranslateCommand;
+using static Business.Handlers.Translates.Commands.DeleteTranslateCommand;
+using static Business.Handlers.Translates.Queries.GetTranslateQuery;
+using static Business.Handlers.Translates.Queries.GetTranslatesQuery;
+using static Business.Handlers.Translates.Commands.UpdateTranslateCommand;
 
 namespace Tests.Business.Handlers
 {

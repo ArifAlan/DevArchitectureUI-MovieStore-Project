@@ -10,10 +10,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using static CreateUserGroupCommand;
-using static DeleteUserGroupCommand;
-using static GetUserGroupsQuery;
-using static UpdateUserGroupCommand;
+using static Business.Handlers.UserGroups.Commands.CreateUserGroupCommand;
+using static Business.Handlers.UserGroups.Commands.DeleteUserGroupCommand;
+using static Business.Handlers.UserGroups.Queries.GetUserGroupsQuery;
+using static Business.Handlers.UserGroups.Commands.UpdateUserGroupCommand;
 
 namespace Tests.Business.Handlers
 {

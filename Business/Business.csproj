@@ -35,5 +35,10 @@
   </ItemGroup>
  <ItemGroup>
    <WCFMetadata Include="Connected Services" />
+ </ItemGroup>
+ <ItemGroup>
+   <Folder Include="Handlers\Actors\Queries\" />
+   <Folder Include="Handlers\Genres\Queries\" />
+   <Folder Include="Handlers\MovieGenres\Queries\" />
  </ItemGroup> 
 </Project>

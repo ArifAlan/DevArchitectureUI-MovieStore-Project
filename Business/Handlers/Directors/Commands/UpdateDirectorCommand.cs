@@ -17,7 +17,7 @@ namespace Business.Handlers.Directors.Commands
         public string Surname { get; set; }
 
 
-        class UpdateDirectorCommandHandler : IRequestHandler<CreateDirectorCommand, IResult>
+        public class UpdateDirectorCommandHandler : IRequestHandler<UpdateDirectorCommand, IResult>
         {
             private readonly IDirectorRepository _directorRepository;
             public UpdateDirectorCommandHandler(IDirectorRepository directorRepository)
@@ -25,7 +25,7 @@ namespace Business.Handlers.Directors.Commands
                 _directorRepository = directorRepository;
             }
 
-            public async Task<IResult> Handle(CreateDirectorCommand request, CancellationToken cancellationToken)
+            public async Task<IResult> Handle(UpdateDirectorCommand request, CancellationToken cancellationToken)
             {
                 var isThereAnyDirector = await _directorRepository.GetAsync(u => u.Id == request.Id);
 

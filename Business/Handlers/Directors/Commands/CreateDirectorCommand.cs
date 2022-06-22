@@ -16,7 +16,7 @@ namespace Business.Handlers.Directors.Commands
         public string Name { get; set; }
         public string Surname { get; set; }
 
-        class CreateDirectorCommandHandler : IRequestHandler<CreateDirectorCommand, IResult>
+        public class CreateDirectorCommandHandler : IRequestHandler<CreateDirectorCommand, IResult>
         {
             private readonly IDirectorRepository _directorRepository;
 

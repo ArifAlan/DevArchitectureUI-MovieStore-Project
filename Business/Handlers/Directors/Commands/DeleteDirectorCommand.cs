@@ -13,7 +13,7 @@ namespace Business.Handlers.Directors.Commands
     {
         public int Id { get; set; }
 
-        class DeleteDirectorCommandHandler : IRequestHandler<DeleteDirectorCommand, IResult>
+        public class DeleteDirectorCommandHandler : IRequestHandler<DeleteDirectorCommand, IResult>
         {
             private readonly IDirectorRepository _directorRepository;
             public DeleteDirectorCommandHandler(IDirectorRepository directorRepository)

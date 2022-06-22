@@ -13,7 +13,7 @@ namespace Business.Handlers.Customers.Commands
     {
         public int Id { get; set; }
 
-        class DeleteCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, IResult>
+        class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand, IResult>
         {
             private readonly ICustomerRepository _customerRepository;
 
@@ -22,7 +22,7 @@ namespace Business.Handlers.Customers.Commands
                 _customerRepository = customerRepository;
             }
 
-            public async Task<IResult> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
+            public async Task<IResult> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
             {
                 var customerDeleted = _customerRepository.Get(x=>x.Id==request.Id);
 

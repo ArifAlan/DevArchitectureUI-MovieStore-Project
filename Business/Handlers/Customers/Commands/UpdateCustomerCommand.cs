@@ -16,7 +16,7 @@ namespace Business.Handlers.Customers.Commands
         public string Surname { get; set; }
     }
 
-    class UpdateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, IResult>
+    class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, IResult>
     {
         private readonly ICustomerRepository _customerRepository;
 
@@ -25,7 +25,7 @@ namespace Business.Handlers.Customers.Commands
             _customerRepository = customerRepository;
         }
 
-        public async Task<IResult> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
+        public async Task<IResult> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
             var isThereAnyCustomer = await _customerRepository.GetAsync(x => x.Id == request.Id);
 

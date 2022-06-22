@@ -1,4 +1,4 @@
-﻿using Business.Handlers.Logs.Queries;
+﻿
 using Core.Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,13 +20,13 @@ namespace WebAPI.Controllers
         /// <remarks>bla bla bla Logs</remarks>
         /// <return>Logs List</return>
         /// <response code="200"></response>
-        [Produces("application/json", "text/plain")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<OperationClaim>))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
-        [HttpGet("getall")]
-        public async Task<IActionResult> GetList()
-        {
-            return GetResponseOnlyResultData(await Mediator.Send(new GetLogDtoQuery()));
-        }
+        //[Produces("application/json", "text/plain")]
+        //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<OperationClaim>))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        //[HttpGet("getall")]
+        //public async Task<IActionResult> GetList()
+        //{
+        //    return GetResponseOnlyResultData(await Mediator.Send(new GetLogDtoQuery()));
+        //}
     }
 }

@@ -38,5 +38,7 @@
  </ItemGroup>
  <ItemGroup>
    <Folder Include="Handlers\Actors\" />
+   <Folder Include="Handlers\Customers\Queries\" />
+   <Folder Include="Handlers\Directors\Queries\" />
  </ItemGroup> 
 </Project>

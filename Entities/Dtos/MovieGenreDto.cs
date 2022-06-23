@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Concrete
+namespace Entities.Dtos
 {
-    public class MovieActor:IEntity
+    public class MovieGenreDto:IDto
     {
         public int Id { get; set; }
-        public int ActorId { get; set; }
         public int MovieId { get; set; }
+        public int GenreId { get; set; }
     }
 }

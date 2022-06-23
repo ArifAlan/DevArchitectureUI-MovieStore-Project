@@ -8,7 +8,7 @@ namespace Entities.Concrete
     public class MovieDirector:IEntity
     {
         public int Id { get; set; }
-        public Movie Movie { get; set; }
-        public Director Director { get; set; }  
+        public int MovieId { get; set; }
+        public int DirectorId { get; set; }  
     }
 }

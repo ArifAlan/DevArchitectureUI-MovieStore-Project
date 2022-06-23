@@ -11,5 +11,6 @@ namespace Entities.Concrete
         public string MovieName { get; set; }
         public decimal Price { get; set; }
         public DateTime ReleaseDate { get; set; }
+
     }
 }

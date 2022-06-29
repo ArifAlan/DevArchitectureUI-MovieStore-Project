@@ -40,5 +40,6 @@
    <Folder Include="Handlers\Actors\" />
    <Folder Include="Handlers\Customers\Queries\" />
    <Folder Include="Handlers\Directors\Queries\" />
+   <Folder Include="Handlers\FavTypeOfMovies\Queries\" />
  </ItemGroup> 
 </Project>

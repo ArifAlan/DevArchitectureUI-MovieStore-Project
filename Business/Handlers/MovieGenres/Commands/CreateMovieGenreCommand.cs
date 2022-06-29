@@ -13,8 +13,8 @@ namespace Business.Handlers.MovieGenres.Commands
     public class CreateMovieGenreCommand : IRequest<IResult>
     {
         public int Id { get; set; }
-        public Movie Movie { get; set; }
-        public Genre Genre { get; set; }
+        public int MovieId { get; set; }
+        public int GenreId { get; set; }
 
 
         public class CreateMovieGenreCommandHandler : IRequestHandler<CreateMovieGenreCommand, IResult>
@@ -30,9 +30,8 @@ namespace Business.Handlers.MovieGenres.Commands
             {
                 var movieGenre = new MovieGenre
                 {
-                    //Movie.Id = request.Movie.Id,
-                    //GenreId=request.GenreId,
-
+                    MovieId = request.MovieId,
+                    GenreId = request.GenreId,
                 };
                 _movieGenreRepository.Add(movieGenre);
                 await _movieGenreRepository.SaveChangesAsync();

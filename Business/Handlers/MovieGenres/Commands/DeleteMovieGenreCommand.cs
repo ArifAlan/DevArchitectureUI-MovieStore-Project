@@ -13,9 +13,6 @@ namespace Business.Handlers.MovieGenres.Commands
     {
         public int Id { get; set; }
 
-
-    
-
     public class DeleteMovieGenreCommandHandler : IRequestHandler<DeleteMovieGenreCommand, IResult>
     {
         private readonly IMovieGenreRepository _movieGenreRepository;

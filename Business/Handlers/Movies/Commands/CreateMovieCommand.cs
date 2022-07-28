@@ -28,6 +28,7 @@ namespace Business.Handlers.Movies.Commands
                 _movieRepository = movieRepository;
             }
 
+            
             public async Task<IResult> Handle(CreateMovieCommand request, CancellationToken cancellationToken)
             {
                 var addedMovie = new Movie

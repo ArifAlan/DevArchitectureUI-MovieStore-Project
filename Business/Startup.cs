@@ -127,6 +127,14 @@ namespace Business
             services.AddDbContext<ProjectDbContext,MsDbContext>();
 
             services.AddTransient<IMovieRepository, MovieRepository>();
+            services.AddTransient<IActorRepository, ActorRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IDirectorRepository, DirectorRepository>();
+            services.AddTransient<IFavTypeOfMovieRepository, FavTypeOfMovieRepository>();
+            services.AddTransient<IGenreRepository, GenreRepository>();
+            services.AddTransient<IMovieActorRepository, MovieActorRepository>();
+            services.AddTransient<IMovieDirectorRepository, MovieDirectorRepository>();
+            services.AddTransient<IMovieGenreRepository, MovieGenreRepository>();
 
             //services.AddSingleton<MongoDbContextBase, MongoDbContext>();
         }

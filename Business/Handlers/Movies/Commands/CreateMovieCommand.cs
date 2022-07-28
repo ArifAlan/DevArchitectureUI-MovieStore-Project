@@ -22,6 +22,7 @@ namespace Business.Handlers.Movies.Commands
         {
             private readonly IMovieRepository _movieRepository;
 
+            
             public CreateMovieCommandHandler(IMovieRepository movieRepository)
             {
                 _movieRepository = movieRepository;

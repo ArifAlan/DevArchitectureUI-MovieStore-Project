@@ -35,8 +35,5 @@
   </ItemGroup>
  <ItemGroup>
    <WCFMetadata Include="Connected Services" />
- </ItemGroup>
- <ItemGroup>
-   <Folder Include="Handlers\Customers\Queries\" />
  </ItemGroup> 
 </Project>

@@ -1,4 +1,5 @@
 ﻿using Business.Handlers.MovieGenres.Commands;
+using Business.Handlers.MovieGenres.Queries;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -1,4 +1,5 @@
 ﻿using Business.Handlers.Actors.Commands;
+using Business.Handlers.Actors.Queries;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

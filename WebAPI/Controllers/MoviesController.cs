@@ -1,6 +1,7 @@
 ﻿using Business.Handlers.Movies.Commands;
 using Business.Handlers.Movies.Queries;
 using Entities.Concrete;
+using Entities.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -74,6 +75,36 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetList()
         {
             return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesQuery()));
+        }
+
+        /// <summary>
+        /// List Users
+        /// </summary>
+        /// <remarks>bla bla bla Users</remarks>
+        /// <return>Users List</return>
+        /// <response code="200"></response>
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<MovieDetailDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("getmoviesdetailslist")]
+        public async Task<IActionResult> GetMoviesDetailsList()
+        {
+            return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesDetailsQuery()));
+        }
+
+        /// <summary>
+        /// List Users
+        /// </summary>
+        /// <remarks>bla bla bla Users</remarks>
+        /// <return>Users List</return>
+        /// <response code="200"></response>
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MovieDetailDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("getbyidmoviedetails")]
+        public async Task<IActionResult> GetMovieDetails(int movieId)
+        {
+            return GetResponseOnlyResultData(await Mediator.Send(new GetMovieDetailsQuery{ Id=movieId}));
         }
     }
 }

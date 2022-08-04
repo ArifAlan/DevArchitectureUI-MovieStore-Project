@@ -10,12 +10,18 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.Actors.Queries
 {
-    //TODO YARIN BURAYA BAK !!1
+  
     public class GetActorsQuery : IRequest<IDataResult<IEnumerable<Actor>>>
     {
-        class GetQActorsQueryHandler : IRequestHandler<GetActorsQuery, IDataResult<IEnumerable<Actor>>>
+        public class GetQActorsQueryHandler : IRequestHandler<GetActorsQuery, IDataResult<IEnumerable<Actor>>>
         {
             private readonly IActorRepository _actorRepository;
+
+            public GetQActorsQueryHandler(IActorRepository actorRepository)
+            {
+                _actorRepository = actorRepository;
+            }
+
             public async Task<IDataResult<IEnumerable<Actor>>> Handle(GetActorsQuery request, CancellationToken cancellationToken)
             {
                 var actorList = await _actorRepository.GetListAsync();

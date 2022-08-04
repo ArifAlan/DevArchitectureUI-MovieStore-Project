@@ -35,9 +35,7 @@ namespace Business.Handlers.OperationClaims.Queries
                 _contextAccessor = contextAccessor;
             }
 
-            [PerformanceAspect(5)]
-            [CacheAspect(10)]
-            [LogAspect(typeof(FileLogger))]
+
             // TODO:[SecuredOperation(Priority = 1)]
             public async Task<IDataResult<IEnumerable<string>>> Handle(GetUserClaimsFromCacheQuery request, CancellationToken cancellationToken)
             {

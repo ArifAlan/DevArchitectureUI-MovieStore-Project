@@ -27,8 +27,7 @@ namespace Business.Handlers.UserGroups.Queries
             }
 
             [SecuredOperation(Priority = 1)]
-            [CacheAspect(10)]
-            [LogAspect(typeof(FileLogger))]
+
             public async Task<IDataResult<IEnumerable<SelectionItem>>> Handle(
                 GetUsersInGroupLookupByGroupIdQuery request, CancellationToken cancellationToken)
             {

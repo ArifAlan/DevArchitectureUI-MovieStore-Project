@@ -29,8 +29,7 @@ namespace Business.Handlers.GroupClaims.Commands
             }
 
             [SecuredOperation(Priority = 1)]
-            [CacheRemoveAspect()]
-            [LogAspect(typeof(FileLogger))]
+
             public async Task<IResult> Handle(UpdateGroupClaimCommand request, CancellationToken cancellationToken)
             {
                 var list = request.ClaimIds.Select(x => new GroupClaim() { ClaimId = x, GroupId = request.GroupId });

@@ -27,8 +27,7 @@ namespace Business.Handlers.OperationClaims.Commands
             }
 
             [SecuredOperation(Priority = 1)]
-            [CacheRemoveAspect()]
-            [LogAspect(typeof(FileLogger))]
+
             public async Task<IResult> Handle(UpdateOperationClaimCommand request, CancellationToken cancellationToken)
             {
                 var isOperationClaimExists = await _operationClaimRepository.GetAsync(u => u.Id == request.Id);

@@ -23,7 +23,7 @@ namespace Business.Handlers.Groups.Queries
                 _groupRepository = groupRepository;
             }
 
-            [CacheAspect(10)]
+ 
             public async Task<IDataResult<IEnumerable<SelectionItem>>> Handle(GetGroupLookupQuery request, CancellationToken cancellationToken)
             {
                 var list = await _groupRepository.GetListAsync();

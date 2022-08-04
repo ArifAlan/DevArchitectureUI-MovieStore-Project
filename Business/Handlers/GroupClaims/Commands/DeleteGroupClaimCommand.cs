@@ -25,8 +25,7 @@ namespace Business.Handlers.GroupClaims.Commands
             }
 
             [SecuredOperation(Priority = 1)]
-            [CacheRemoveAspect()]
-            [LogAspect(typeof(FileLogger))]
+
             public async Task<IResult> Handle(DeleteGroupClaimCommand request, CancellationToken cancellationToken)
             {
                 var groupClaimToDelete = await _groupClaimRepository.GetAsync(x => x.GroupId == request.Id);

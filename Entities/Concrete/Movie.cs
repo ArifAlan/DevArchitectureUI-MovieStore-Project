@@ -12,5 +12,9 @@ namespace Entities.Concrete
         public decimal Price { get; set; }
         public DateTime ReleaseDate { get; set; }
 
+        public decimal IMDbRating { get; set; }
+
+        public string Description { get; set; }
+
     }
 }

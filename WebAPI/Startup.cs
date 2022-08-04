@@ -138,9 +138,9 @@ namespace WebAPI
 
             app.UseRouting();
 
-            app.UseAuthentication();
+           // app.UseAuthentication();
 
-            app.UseAuthorization();
+           // app.UseAuthorization();
 
             // Make Turkish your default language. It shouldn't change according to the server.
             app.UseRequestLocalization(new RequestLocalizationOptions

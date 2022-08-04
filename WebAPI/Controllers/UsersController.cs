@@ -70,7 +70,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CreateUserCommand createUser)
+        public async Task<IActionResult> Add(CreateUserCommand createUser)
         {
             return GetResponseOnlyResultMessage(await Mediator.Send(createUser));
         }

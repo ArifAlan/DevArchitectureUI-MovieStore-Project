@@ -30,8 +30,7 @@ namespace Business.Handlers.UserGroups.Commands
 
 
             [SecuredOperation(Priority = 1)]
-            [CacheRemoveAspect()]
-            [LogAspect(typeof(FileLogger))]
+
             public async Task<IResult> Handle(UpdateUserGroupCommand request, CancellationToken cancellationToken)
             {
                 var userGroupList =

@@ -33,8 +33,7 @@ namespace Business.Handlers.UserClaims.Commands
             }
 
             [SecuredOperation(Priority = 1)]
-            [CacheRemoveAspect()]
-            [LogAspect(typeof(FileLogger))]
+
             public async Task<IResult> Handle(UpdateUserClaimCommand request, CancellationToken cancellationToken)
             {
                 var userList = request.ClaimId.Select(x => new UserClaim() { ClaimId = x, UserId = request.UserId });

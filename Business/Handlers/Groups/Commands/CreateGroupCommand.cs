@@ -28,8 +28,7 @@ namespace Business.Handlers.Groups.Commands
             }
 
             [SecuredOperation(Priority = 1)]
-            [CacheRemoveAspect()]
-            [LogAspect(typeof(FileLogger))]
+
             public async Task<IResult> Handle(CreateGroupCommand request, CancellationToken cancellationToken)
             {
                 try

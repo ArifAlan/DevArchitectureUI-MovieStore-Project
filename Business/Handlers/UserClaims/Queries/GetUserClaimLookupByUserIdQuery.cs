@@ -28,7 +28,7 @@ namespace Business.Handlers.UserClaims.Queries
             }
 
             [SecuredOperation(Priority = 1)]
-            [LogAspect(typeof(FileLogger))]
+
             public async Task<IDataResult<IEnumerable<SelectionItem>>> Handle(GetUserClaimLookupByUserIdQuery request, CancellationToken cancellationToken)
             {
                 var data = await _userClaimRepository.GetUserClaimSelectedList(request.Id);

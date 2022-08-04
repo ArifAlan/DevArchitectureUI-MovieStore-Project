@@ -37,8 +37,7 @@ namespace Business.Handlers.Languages.Commands
 
             [SecuredOperation(Priority = 1)]
             [ValidationAspect(typeof(CreateLanguageValidator), Priority = 2)]
-            [CacheRemoveAspect()]
-            [LogAspect(typeof(FileLogger))]
+
             public async Task<IResult> Handle(CreateLanguageCommand request, CancellationToken cancellationToken)
             {
                 var isThereLanguageRecord = _languageRepository.Query().Any(u => u.Name == request.Name);

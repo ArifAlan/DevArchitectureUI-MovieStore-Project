@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.Actors.Queries
 {
+    //TODO YARIN BURAYA BAK !!1
     public class GetActorsQuery : IRequest<IDataResult<IEnumerable<Actor>>>
     {
         class GetQActorsQueryHandler : IRequestHandler<GetActorsQuery, IDataResult<IEnumerable<Actor>>>

@@ -55,6 +55,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
         public DbSet<MovieDirector> MovieDirectors { get; set; }
         public DbSet<FavTypeOfMovie> FavTypeOfMovies { get; set; }
         public DbSet<MovieGenre> MovieGenres { get; set; }
+        public DbSet<MovieImage> MovieImages { get; set; }
 
 
 

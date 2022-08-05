@@ -135,10 +135,11 @@ namespace WebAPI
             app.UseCors("AllowOrigin");
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseRouting();
 
-           // app.UseAuthentication();
+           //app.UseAuthentication();
 
            // app.UseAuthorization();
 
@@ -154,7 +155,7 @@ namespace WebAPI
             CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
             CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
-            app.UseStaticFiles();
+           
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

@@ -8,6 +8,8 @@ using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.DependencyResolvers;
 using Core.Extensions;
 using Core.Utilities.ElasticSearch;
+using Core.Utilities.Helpers.FileHelper;
+using Core.Utilities.Helpers.FileHelper.Core.Utilities.Helpers.FileHelper;
 using Core.Utilities.IoC;
 using Core.Utilities.MessageBrokers.RabbitMq;
 using Core.Utilities.Security.Jwt;
@@ -135,6 +137,9 @@ namespace Business
             services.AddTransient<IMovieActorRepository, MovieActorRepository>();
             services.AddTransient<IMovieDirectorRepository, MovieDirectorRepository>();
             services.AddTransient<IMovieGenreRepository, MovieGenreRepository>();
+            services.AddTransient<IMovieImageRepository, MovieImageRepository>();
+            services.AddTransient<IFileHelper, FileHeplerManager>();
+
 
             //services.AddSingleton<MongoDbContextBase, MongoDbContext>();
         }

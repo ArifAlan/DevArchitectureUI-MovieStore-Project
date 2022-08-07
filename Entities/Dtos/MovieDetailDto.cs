@@ -15,6 +15,7 @@ namespace Entities.Dtos
         public List<DirectorDto> Directors { get; set; }
         public decimal Price { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public string Description { get; set; }
 
     }
 }

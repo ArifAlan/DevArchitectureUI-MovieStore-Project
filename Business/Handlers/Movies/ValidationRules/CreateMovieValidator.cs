@@ -13,7 +13,7 @@ namespace Business.Handlers.Movies.ValidationRules
             RuleFor(x => x.MovieName).MinimumLength(2).WithMessage("Movie adı  minimum 2 karakter olmalıdır"); 
            RuleFor(x => x.Description).MinimumLength(40).WithMessage("Description  minimum 40 karakter olmalıdır");
             RuleFor(x => x.IMDbRating).NotEmpty().WithMessage("IMDbRating  boş olamaz");
-            RuleFor(c => c.Price).GreaterThan(0).WithMessage("IMDbRating  boş olamaz");
+            RuleFor(c => c.Price).GreaterThan(0).WithMessage("Price  0 olamaz");
         }
     }
 
@@ -24,7 +24,7 @@ namespace Business.Handlers.Movies.ValidationRules
             RuleFor(x => x.MovieName).MinimumLength(2).WithMessage("Movie adı  minimum 2 karakter olmalıdır");
             RuleFor(x => x.Description).MinimumLength(40).WithMessage("Description  minimum 40 karakter olmalıdır");
             RuleFor(x => x.IMDbRating).NotEmpty().WithMessage("IMDbRating  boş olamaz");
-            RuleFor(c => c.Price).GreaterThan(0).WithMessage("IMDbRating  boş olamaz");
+            RuleFor(c => c.Price).GreaterThan(0).WithMessage("Price  0 olamaz");
         }
     }
 }

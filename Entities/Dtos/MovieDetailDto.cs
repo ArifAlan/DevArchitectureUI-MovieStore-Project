@@ -17,7 +17,9 @@ namespace Entities.Dtos
         public DateTime ReleaseDate { get; set; }
         public string Description { get; set; }
         public string ImagePath { get; set; }
+        public string VideoLink { get; set; }
         public decimal IMDbRating { get; set; }
+        public int TotalTime { get; set; }
 
     }
 }

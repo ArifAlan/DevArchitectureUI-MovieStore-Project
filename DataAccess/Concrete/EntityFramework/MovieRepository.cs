@@ -89,5 +89,42 @@ namespace DataAccess.Concrete.EntityFramework
                          }).ToListAsync();
             return result;
         }
+
+        public async Task<List<MovieDetailDto>> GetTopMoviesDetails()
+        {
+            var result = await (from m in Context.Movies
+
+                                select new MovieDetailDto
+                                {
+                                    Id = m.Id,
+                                    MovieName = m.MovieName,
+                                    Price = m.Price,
+                                    ReleaseDate = m.ReleaseDate,
+                                    Description = m.Description,
+                                    IMDbRating = m.IMDbRating,
+                                    ImagePath = (from mi in Context.MovieImages where mi.MovieId == m.Id select mi.ImagePath).FirstOrDefault(),
+                                    Actors = (from a in Context.MovieActors
+                                              where a.MovieId == m.Id
+                                              select new ActorDto
+                                              {
+                                                  ActorName = (from actor in Context.Actors where actor.Id == a.ActorId select actor.Name + " " + actor.Surname).FirstOrDefault()
+                                              }).ToList(),
+                                    Directors = (from di in Context.MovieDirectors
+                                                 where di.MovieId == m.Id
+                                                 select new DirectorDto
+                                                 {
+                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name).FirstOrDefault()
+                                                 }).ToList(),
+                                    Genres = (from g in Context.MovieGenres
+                                              where g.MovieId == m.Id
+                                              select new GenreDto
+                                              {
+                                                  GenreName = (from genre in Context.Genres where genre.Id == g.GenreId select genre.Name).FirstOrDefault()
+                                              }).ToList(),
+                                }).OrderByDescending(i => i.IMDbRating).Take(15).ToListAsync();
+
+
+            return result;
+        }
     }
 }

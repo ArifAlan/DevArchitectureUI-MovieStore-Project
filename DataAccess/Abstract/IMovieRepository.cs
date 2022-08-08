@@ -14,5 +14,7 @@ namespace DataAccess.Abstract
 
         Task<List<MovieDetailDto>> GetMoviesDetails();
 
+        Task<List<MovieDetailDto>> GetTopMoviesDetails();
+
     }
 }

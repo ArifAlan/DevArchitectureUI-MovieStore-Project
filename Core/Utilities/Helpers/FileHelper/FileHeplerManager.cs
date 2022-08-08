@@ -1,11 +1,15 @@
 ﻿using Core.Utilities.Helpers.FileHelper.Core.Utilities.Helpers.FileHelper;
+using ImageMagick;
 using Microsoft.AspNetCore.Http;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Core.Utilities.Helpers.FileHelper
 {
@@ -42,15 +46,36 @@ namespace Core.Utilities.Helpers.FileHelper
                 string extension = Path.GetExtension(file.FileName);//Path.GetExtension(file.FileName)=>> Seçmiş olduğumuz dosyanın uzantısını elde ediyoruz.
                 string guid = GuidHelper.GuidHelperManager.CreateGuid();//Core.Utilities.Helpers.GuidHelper klasürünün içinde ki GuidManager klasörüne giderseniz burada satırda ne yaptığımızı anlayacaksınız
                 string filePath = guid + extension;//Dosyanın oluşturduğum adını ve uzantısını yan yana getiriyorum. Mesela metin dosyası ise .txt gibi bu projemizde resim yükyeceğimiz için .jpg olacak uzantılar 
-
-                using (FileStream fileStream = File.Create(root + filePath))//Burada en başta FileStrem class'ının bir örneği oluşturulu., sonrasında File.Create(root + newPath)=>Belirtilen yolda bir dosya oluşturur veya üzerine yazar. (root + newPath)=>Oluşturulacak dosyanın yolu ve adı.
+                using (var image=Image.Load(file.OpenReadStream()))
                 {
-                    file.CopyTo(fileStream);//Kopyalanacak dosyanın kopyalanacağı akışı belirtti. yani yukarıda gelen IFromFile türündeki file dosyasınınnereye kopyalacağını söyledik.
-                    fileStream.Flush();//arabellekten siler.
-                    return filePath;//burada dosyamızın tam adını geri gönderiyoruz sebebide sql servere dosya eklenirken adı ile eklenmesi için.
+                    string newSize = ImageRezise(image, 270, 360);
+                    string[] sizearray = newSize.Split(',');
+                   
+                    image.Mutate(x => x.Resize(Convert.ToInt32(sizearray[1]), Convert.ToInt32(sizearray[0])));
+                    image.Save(root + filePath);
                 }
+                return filePath;
+
+
             }
+           
             return null;
+        }
+        public string ImageRezise(Image img, int MaxWidth, int MaxHeight)
+        {
+            if (img.Width > MaxWidth || img.Height> MaxHeight)
+            {
+                double widthratio = (double)img.Width / img.Height;
+                double heightratio = (double)img.Height / img.Width;
+                double ratio = Math.Max(widthratio, heightratio);
+                int newWidth = (int)(img.Width / ratio);
+                int newHeight = (int)(img.Height / ratio);
+                return newHeight.ToString() + " ," + newWidth.ToString();
+            }
+            else
+            {
+                return img.Height.ToString() + " ," + img.Width.ToString();
+            }
         }
     }
 }

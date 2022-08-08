@@ -1,4 +1,6 @@
-﻿using Core.Utilities.Results;
+﻿using Business.Handlers.Directors.ValidationRules;
+using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
@@ -24,7 +26,7 @@ namespace Business.Handlers.Directors.Commands
             {
                 _directorRepository = directorRepository;
             }
-
+            [ValidationAspect(typeof(CreateDirectorValidator), Priority = 1)]
             public async Task<IResult> Handle(CreateDirectorCommand request, CancellationToken cancellationToken)
             {
                 var director = new Director

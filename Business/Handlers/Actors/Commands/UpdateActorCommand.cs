@@ -1,4 +1,6 @@
-﻿using Core.Utilities.Results;
+﻿using Business.Handlers.Actors.ValidationRules;
+using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
 using System;
@@ -24,7 +26,7 @@ namespace Business.Handlers.Actors.Commands
             {
                 _actorRepository = actorRepository;
             }
-
+            [ValidationAspect(typeof(UpdateActorValidator), Priority = 1)]
             public async Task<IResult> Handle(UpdateActorCommand request, CancellationToken cancellationToken)
             {
                 var isThereAnyActor = await _actorRepository.GetAsync(p => p.Id == request.Id);

@@ -1,4 +1,6 @@
-﻿using Core.Utilities.Results;
+﻿using Business.Handlers.Movies.ValidationRules;
+using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
@@ -16,6 +18,8 @@ namespace Business.Handlers.Movies.Commands
         public string MovieName { get; set; }
         public decimal Price { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public decimal IMDbRating { get; set; }
+        public string Description { get; set; }
 
 
         public class CreateMovieCommandHandler : IRequestHandler<CreateMovieCommand, IResult>
@@ -28,7 +32,7 @@ namespace Business.Handlers.Movies.Commands
                 _movieRepository = movieRepository;
             }
 
-            
+            [ValidationAspect(typeof(CreateMovieValidator), Priority = 1)]
             public async Task<IResult> Handle(CreateMovieCommand request, CancellationToken cancellationToken)
             {
                 var addedMovie = new Movie
@@ -36,6 +40,8 @@ namespace Business.Handlers.Movies.Commands
                     MovieName = request.MovieName,
                     Price = request.Price,  
                     ReleaseDate = request.ReleaseDate,  
+                    Description = request.Description,
+                    IMDbRating = request.IMDbRating,    
 
                 };
                 _movieRepository.Add(addedMovie);

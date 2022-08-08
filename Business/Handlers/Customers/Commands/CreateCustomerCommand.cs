@@ -1,4 +1,6 @@
-﻿using Core.Utilities.Results;
+﻿using Business.Handlers.Customers.ValidationRules;
+using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
@@ -23,7 +25,7 @@ namespace Business.Handlers.Customers.Commands
             {
                 _customerRepository = customerRepository;
             }
-
+            [ValidationAspect(typeof(CreateCustomerValidator), Priority = 2)]
             public async Task<IResult> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
             {
                 var customer = new Customer

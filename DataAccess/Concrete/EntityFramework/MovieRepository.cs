@@ -31,6 +31,7 @@ namespace DataAccess.Concrete.EntityFramework
                                     ReleaseDate = m.ReleaseDate,
                                     Description = m.Description,
                                     IMDbRating = m.IMDbRating,
+                                    ImagePath = (from mi in Context.MovieImages where mi.MovieId == m.Id select mi.ImagePath).FirstOrDefault(),
                                     Actors = (from a in Context.MovieActors
                                               where a.MovieId == m.Id
                                               select new ActorDto
@@ -66,6 +67,7 @@ namespace DataAccess.Concrete.EntityFramework
                              ReleaseDate=m.ReleaseDate,
                              Description = m.Description,
                              IMDbRating = m.IMDbRating,
+                             ImagePath=( from mi in Context.MovieImages where mi.MovieId==m.Id select mi.ImagePath).FirstOrDefault(),
                              Actors = (from a in Context.MovieActors
                                        where a.MovieId == m.Id
                                        select new ActorDto

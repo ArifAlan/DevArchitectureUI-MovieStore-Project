@@ -26,6 +26,7 @@
 		<Content Remove="log4net.config" />
 		<Content Remove="nlog.config" />
 		<Content Remove="nlog.development.config" />
+		<Content Remove="wwwroot\Uploads\Images\cf7783bd-e90a-4843-bd1a-8dda68fcd649.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -62,6 +63,10 @@
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\Uploads\Images\" />
 	</ItemGroup>
 
 </Project>

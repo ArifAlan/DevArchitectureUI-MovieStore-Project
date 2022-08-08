@@ -1,4 +1,6 @@
-﻿using Core.Utilities.Results;
+﻿using Business.Handlers.Actors.ValidationRules;
+using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
@@ -25,7 +27,7 @@ namespace Business.Handlers.Actors.Commands
             {
                 _actorRepository = actorRepository;
             }
-
+            [ValidationAspect(typeof(CreateActorValidator), Priority = 1)]
             public async Task<IResult> Handle(CreateActorCommand request, CancellationToken cancellationToken)
             {
                 var addedActor = new Actor

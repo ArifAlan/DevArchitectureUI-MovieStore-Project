@@ -1,4 +1,6 @@
 ﻿using Business.Constants;
+using Business.Handlers.Movies.ValidationRules;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
@@ -16,6 +18,9 @@ namespace Business.Handlers.Movies.Commands
         public string MovieName { get; set; }
         public decimal Price { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public decimal IMDbRating { get; set; }
+
+        public string Description { get; set; }
 
 
         public class UpdateMovieCommandHandler : IRequestHandler<UpdateMovieCommand, IResult>
@@ -26,13 +31,15 @@ namespace Business.Handlers.Movies.Commands
             {
                 _movieRepository = movieRepository;
             }
-
+            [ValidationAspect(typeof(UpdateMovieValidator), Priority = 1)]
             public async Task<IResult> Handle(UpdateMovieCommand request, CancellationToken cancellationToken)
             {
                 var isThereAnyMovie = await _movieRepository.GetAsync(u => u.Id == request.Id);
                 isThereAnyMovie.MovieName = request.MovieName;
                 isThereAnyMovie.Price = request.Price;
                 isThereAnyMovie.ReleaseDate = request.ReleaseDate;
+                isThereAnyMovie.IMDbRating = request.IMDbRating;
+                isThereAnyMovie.Description = request.Description;
 
                 _movieRepository.Update(isThereAnyMovie);
                 await _movieRepository.SaveChangesAsync();

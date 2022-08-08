@@ -11,9 +11,9 @@ namespace Entities.Concrete
         public string MovieName { get; set; }
         public decimal Price { get; set; }
         public DateTime ReleaseDate { get; set; }
-
+        public string VideoLink { get; set; }
         public decimal IMDbRating { get; set; }
-
+        public int TotalTime { get; set; }
         public string Description { get; set; }
 
     }

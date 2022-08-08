@@ -106,5 +106,20 @@ namespace WebAPI.Controllers
         {
             return GetResponseOnlyResultData(await Mediator.Send(new GetMovieDetailsQuery{ Id=movieId}));
         }
+
+        /// <summary>
+        /// List Users
+        /// </summary>
+        /// <remarks>bla bla bla Users</remarks>
+        /// <return>Users List</return>
+        /// <response code="200"></response>
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MovieDetailDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("gettopmoviesdetails")]
+        public async Task<IActionResult> GetTopMoviesDetails()
+        {
+            return GetResponseOnlyResultData(await Mediator.Send(new GetTopMoviesDetailsQuery() ));
+        }
     }
 }

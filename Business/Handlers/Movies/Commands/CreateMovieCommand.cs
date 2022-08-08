@@ -42,9 +42,8 @@ namespace Business.Handlers.Movies.Commands
                     ReleaseDate = request.ReleaseDate,  
                     Description = request.Description,
                     IMDbRating = request.IMDbRating,    
-                    ReleaseDate = request.ReleaseDate,
-                    Description= request.Description,
-                    IMDbRating = request.IMDbRating,
+                 
+                 
 
                 };
                 _movieRepository.Add(addedMovie);

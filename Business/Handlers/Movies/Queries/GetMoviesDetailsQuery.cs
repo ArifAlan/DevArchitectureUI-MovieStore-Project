@@ -12,7 +12,7 @@ namespace Business.Handlers.Movies.Queries
 {
     public class GetMoviesDetailsQuery :IRequest<IDataResult<IEnumerable<MovieDetailDto>>>
     {
-        class GetMoviesDetailsQueryHandler : IRequestHandler<GetMoviesDetailsQuery, IDataResult<IEnumerable<MovieDetailDto>>>
+        public class GetMoviesDetailsQueryHandler : IRequestHandler<GetMoviesDetailsQuery, IDataResult<IEnumerable<MovieDetailDto>>>
         {
             private readonly IMovieRepository _movieRepository;
 

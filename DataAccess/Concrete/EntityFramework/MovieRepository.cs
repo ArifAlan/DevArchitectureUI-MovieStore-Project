@@ -29,7 +29,8 @@ namespace DataAccess.Concrete.EntityFramework
                                     MovieName = m.MovieName,
                                     Price = m.Price,
                                     ReleaseDate = m.ReleaseDate,
-
+                                    Description = m.Description,
+                                    IMDbRating = m.IMDbRating,
                                     Actors = (from a in Context.MovieActors
                                               where a.MovieId == m.Id
                                               select new ActorDto
@@ -63,6 +64,8 @@ namespace DataAccess.Concrete.EntityFramework
                              MovieName = m.MovieName,
                              Price = m.Price,
                              ReleaseDate=m.ReleaseDate,
+                             Description = m.Description,
+                             IMDbRating = m.IMDbRating,
                              Actors = (from a in Context.MovieActors
                                        where a.MovieId == m.Id
                                        select new ActorDto

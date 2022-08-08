@@ -1,4 +1,6 @@
-﻿using Core.Utilities.Results;
+﻿using Business.Handlers.Customers.ValidationRules;
+using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
 using System;
@@ -24,7 +26,7 @@ namespace Business.Handlers.Customers.Commands
         {
             _customerRepository = customerRepository;
         }
-
+        [ValidationAspect(typeof(UpdateCustomerValidator), Priority = 1)]
         public async Task<IResult> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
             var isThereAnyCustomer = await _customerRepository.GetAsync(x => x.Id == request.Id);

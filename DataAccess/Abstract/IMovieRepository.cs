@@ -16,5 +16,13 @@ namespace DataAccess.Abstract
 
         Task<List<MovieDetailDto>> GetTopMoviesDetails();
 
+        Task<List<MovieDetailDto>> GetNewsMoviesDetails();
+
+        Task<List<MovieDetailDto>> GetActionMoviesDetails();
+
+        Task<List<MovieDetailDto>> GetComedyMoviesDetails();
+
+        Task<List<MovieDetailDto>> GetMoviesDetailsWithPagination(int limit, int skip);
+
     }
 }

@@ -21,5 +21,7 @@ namespace Entities.Dtos
         public decimal IMDbRating { get; set; }
         public int TotalTime { get; set; }
 
+        public DateTime UploadDate { get; set; }
+
     }
 }

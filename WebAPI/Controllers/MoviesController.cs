@@ -87,9 +87,9 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<MovieDetailDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpGet("getmoviesdetailslist")]
-        public async Task<IActionResult> GetMoviesDetailsList()
+        public async Task<IActionResult> GetMoviesDetailsList(int currentPage)
         {
-            return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesDetailsQuery()));
+            return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesDetailsQuery { CurrentPage=currentPage}));
         }
 
         /// <summary>
@@ -120,6 +120,66 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetTopMoviesDetails()
         {
             return GetResponseOnlyResultData(await Mediator.Send(new GetTopMoviesDetailsQuery() ));
+        }
+
+        /// <summary>
+        /// List Users
+        /// </summary>
+        /// <remarks>bla bla bla Users</remarks>
+        /// <return>Users List</return>
+        /// <response code="200"></response>
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MovieDetailDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("getnewsmoviesdetails")]
+        public async Task<IActionResult> GetNewsMoviesDetails()
+        {
+            return GetResponseOnlyResultData(await Mediator.Send(new GetNewsMoviesDetailsQuery()));
+        }
+
+        /// <summary>
+        /// List Users
+        /// </summary>
+        /// <remarks>bla bla bla Users</remarks>
+        /// <return>Users List</return>
+        /// <response code="200"></response>
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MovieDetailDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("getactionMoviesDetails")]
+        public async Task<IActionResult> GetActionMoviesDetails()
+        {
+            return GetResponseOnlyResultData(await Mediator.Send(new GetActionMoviesDetailsQuery()));
+        }
+
+        /// <summary>
+        /// List Users
+        /// </summary>
+        /// <remarks>bla bla bla Users</remarks>
+        /// <return>Users List</return>
+        /// <response code="200"></response>
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MovieDetailDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("getcomedymoviesdetails")]
+        public async Task<IActionResult> GetComedyMoviesDetails()
+        {
+            return GetResponseOnlyResultData(await Mediator.Send(new GetComedyMoviesDetailsQuery()));
+        }
+
+        /// <summary>
+        /// List Users
+        /// </summary>
+        /// <remarks>bla bla bla Users</remarks>
+        /// <return>Users List</return>
+        /// <response code="200"></response>
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MovieDetailDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("getmoviestotalpage")]
+        public async Task<IActionResult> GetMoviesTotalPage()
+        {
+            return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesTotalPageQuery()));
         }
     }
 }

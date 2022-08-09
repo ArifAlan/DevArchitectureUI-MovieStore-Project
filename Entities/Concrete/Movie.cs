@@ -16,5 +16,7 @@ namespace Entities.Concrete
         public int TotalTime { get; set; }
         public string Description { get; set; }
 
+        public DateTime UploadDate { get; set; }
+
     }
 }

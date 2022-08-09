@@ -20,7 +20,8 @@ namespace Business.Handlers.Movies.Commands
         public DateTime ReleaseDate { get; set; }
         public decimal IMDbRating { get; set; }
         public string Description { get; set; }
-
+        public int TotalTime { get; set; }
+        public string VideoLink { get; set; }
 
         public class CreateMovieCommandHandler : IRequestHandler<CreateMovieCommand, IResult>
         {
@@ -42,8 +43,10 @@ namespace Business.Handlers.Movies.Commands
                     ReleaseDate = request.ReleaseDate,  
                     Description = request.Description,
                     IMDbRating = request.IMDbRating,    
-                 
-                 
+                    UploadDate = DateTime.Now,
+                    TotalTime = request.TotalTime,
+                    VideoLink = request.VideoLink, 
+                    
 
                 };
                 _movieRepository.Add(addedMovie);

@@ -1,4 +1,6 @@
-﻿using Core.Utilities.Results;
+﻿using Business.Helpers;
+using Core.Entities.Concrete;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Dtos;
 using MediatR;
@@ -12,6 +14,7 @@ namespace Business.Handlers.Movies.Queries
 {
     public class GetMoviesDetailsQuery :IRequest<IDataResult<IEnumerable<MovieDetailDto>>>
     {
+        public int CurrentPage { get; set; }
         public class GetMoviesDetailsQueryHandler : IRequestHandler<GetMoviesDetailsQuery, IDataResult<IEnumerable<MovieDetailDto>>>
         {
             private readonly IMovieRepository _movieRepository;
@@ -23,9 +26,26 @@ namespace Business.Handlers.Movies.Queries
 
             public async Task<IDataResult<IEnumerable<MovieDetailDto>>> Handle(GetMoviesDetailsQuery request, CancellationToken cancellationToken)
             {
-                var moviesDetails = await _movieRepository.GetMoviesDetails();
+                int limit = 8;
+                int skipData;
 
-                return new SuccessDataResult<IEnumerable<MovieDetailDto>>(moviesDetails);
+                if (request.CurrentPage == 1)
+                {
+                     skipData = 0;
+                } else
+                {
+                     skipData = ((request.CurrentPage - 1) * limit);
+                }
+
+                 
+                var totalMoviesDetails = await _movieRepository.GetMoviesDetails();
+                var countMovieDetailsData = totalMoviesDetails.Count;
+
+
+
+                var result = await _movieRepository.GetMoviesDetailsWithPagination(limit, skipData);
+
+                return new SuccessDataResult<IEnumerable<MovieDetailDto>>(result);
             }
         }
     }

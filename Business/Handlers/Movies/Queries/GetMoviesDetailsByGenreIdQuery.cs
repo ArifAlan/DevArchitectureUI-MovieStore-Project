@@ -1,6 +1,4 @@
-﻿using Business.Helpers;
-using Core.Entities.Concrete;
-using Core.Utilities.Results;
+﻿using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Dtos;
 using MediatR;
@@ -12,19 +10,20 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.Movies.Queries
 {
-    public class GetMoviesDetailsQuery : IRequest<IDataResult<IEnumerable<MovieDetailDto>>>
+    public class GetMoviesDetailsByGenreIdQuery : IRequest<IDataResult<IEnumerable<MovieDetailDto>>>
     {
+        public int GenreId { get; set; }
         public int CurrentPage { get; set; }
-        public class GetMoviesDetailsQueryHandler : IRequestHandler<GetMoviesDetailsQuery, IDataResult<IEnumerable<MovieDetailDto>>>
+        public class GetMovieDetailsByGenreIdQueryHandler : IRequestHandler<GetMoviesDetailsByGenreIdQuery, IDataResult<IEnumerable<MovieDetailDto>>>
         {
             private readonly IMovieRepository _movieRepository;
 
-            public GetMoviesDetailsQueryHandler(IMovieRepository movieRepository)
+            public GetMovieDetailsByGenreIdQueryHandler(IMovieRepository movieRepository)
             {
                 _movieRepository = movieRepository;
             }
 
-            public async Task<IDataResult<IEnumerable<MovieDetailDto>>> Handle(GetMoviesDetailsQuery request, CancellationToken cancellationToken)
+            public async Task<IDataResult<IEnumerable<MovieDetailDto>>> Handle(GetMoviesDetailsByGenreIdQuery request, CancellationToken cancellationToken)
             {
                 int limit = 12;
                 int skipData;
@@ -38,13 +37,7 @@ namespace Business.Handlers.Movies.Queries
                     skipData = (Math.Abs(request.CurrentPage - 1) * limit);
                 }
 
-
-                var totalMoviesDetails = await _movieRepository.GetMoviesDetails();
-                var countMovieDetailsData = totalMoviesDetails.Count;
-
-
-
-                var result = await _movieRepository.GetMoviesDetailsWithPagination(limit, skipData);
+                var result = await _movieRepository.GetMoviesDetailsWithPaginationByGenreId(limit, skipData, request.GenreId);
 
                 return new SuccessDataResult<IEnumerable<MovieDetailDto>>(result);
             }

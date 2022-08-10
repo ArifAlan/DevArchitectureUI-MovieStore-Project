@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IMovieRepository:IEntityRepository<Movie>
+    public interface IMovieRepository : IEntityRepository<Movie>
     {
         Task<MovieDetailDto> GetMovieDetails(int movieId);
 
@@ -24,5 +24,8 @@ namespace DataAccess.Abstract
 
         Task<List<MovieDetailDto>> GetMoviesDetailsWithPagination(int limit, int skip);
 
+        Task<List<MovieDetailDto>> GetMoviesDetailsByGenreId(int genreId);
+
+        Task<List<MovieDetailDto>> GetMoviesDetailsWithPaginationByGenreId(int limit, int skip, int genreId);
     }
 }

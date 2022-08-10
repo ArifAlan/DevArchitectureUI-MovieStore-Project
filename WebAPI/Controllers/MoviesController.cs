@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody]CreateMovieCommand createMovieCommand)
+        public async Task<IActionResult> Add([FromBody] CreateMovieCommand createMovieCommand)
         {
             return GetResponseOnlyResultMessage(await Mediator.Send(createMovieCommand));
         }
@@ -41,7 +41,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpDelete]
-        
+
         public async Task<IActionResult> Delete([FromBody] DeleteMovieCommand deleteMovieCommand)
         {
             return GetResponseOnlyResultMessage(await Mediator.Send(deleteMovieCommand));
@@ -89,7 +89,7 @@ namespace WebAPI.Controllers
         [HttpGet("getmoviesdetailslist")]
         public async Task<IActionResult> GetMoviesDetailsList(int currentPage)
         {
-            return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesDetailsQuery { CurrentPage=currentPage}));
+            return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesDetailsQuery { CurrentPage = currentPage }));
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbyidmoviedetails")]
         public async Task<IActionResult> GetMovieDetails(int movieId)
         {
-            return GetResponseOnlyResultData(await Mediator.Send(new GetMovieDetailsQuery{ Id=movieId}));
+            return GetResponseOnlyResultData(await Mediator.Send(new GetMovieDetailsQuery { Id = movieId }));
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace WebAPI.Controllers
         [HttpGet("gettopmoviesdetails")]
         public async Task<IActionResult> GetTopMoviesDetails()
         {
-            return GetResponseOnlyResultData(await Mediator.Send(new GetTopMoviesDetailsQuery() ));
+            return GetResponseOnlyResultData(await Mediator.Send(new GetTopMoviesDetailsQuery()));
         }
 
         /// <summary>
@@ -181,5 +181,36 @@ namespace WebAPI.Controllers
         {
             return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesTotalPageQuery()));
         }
+
+        /// <summary>
+        /// List Users
+        /// </summary>
+        /// <remarks>bla bla bla Users</remarks>
+        /// <return>Users List</return>
+        /// <response code="200"></response>
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MovieDetailDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("getmoviesdetailsbygenreid")]
+        public async Task<IActionResult> GetMoviesDetailsByGenreId(int genreId, int curentPage)
+        {
+            return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesDetailsByGenreIdQuery { GenreId = genreId, CurrentPage = curentPage }));
+        }
+
+        /// <summary>
+        /// List Users
+        /// </summary>
+        /// <remarks>bla bla bla Users</remarks>
+        /// <return>Users List</return>
+        /// <response code="200"></response>
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MovieDetailDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("getmoviesdetailstotalpagesbygenreid")]
+        public async Task<IActionResult> GetMoviesDetailsTotalPagesByGenreId(int genreId)
+        {
+            return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesDetailsTotalPageByGenreIdQuery { GenreId = genreId }));
+        }
+
     }
 }

@@ -14,7 +14,7 @@ namespace Business.Handlers.Genres.Queries
     {
         public int Id { get; set; }
 
-        class GetGenreQueryHandler : IRequestHandler<GetGenreQuery, IDataResult<Genre>>
+       public class GetGenreQueryHandler : IRequestHandler<GetGenreQuery, IDataResult<Genre>>
         {
             private readonly IGenreRepository _genreRepository;
 

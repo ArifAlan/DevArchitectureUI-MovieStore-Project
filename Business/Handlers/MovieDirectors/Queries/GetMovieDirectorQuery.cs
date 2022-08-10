@@ -14,7 +14,7 @@ namespace Business.Handlers.MovieDirectors.Queries
     {
         public int Id { get; set; }
 
-        class GetMovieDirectorQueryHandler : IRequestHandler<GetMovieDirectorQuery, IDataResult<MovieDirector>>
+      public   class GetMovieDirectorQueryHandler : IRequestHandler<GetMovieDirectorQuery, IDataResult<MovieDirector>>
         {
             private readonly IMovieDirectorRepository _movieDirectorRepository;
 

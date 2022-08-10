@@ -23,11 +23,11 @@ namespace Business.Handlers.Movies.Queries
             public async Task<IDataResult<decimal>> Handle(GetMoviesTotalPageQuery request, CancellationToken cancellationToken)
             {
                 var movies = await _movieRepository.GetMoviesDetails();
-                var countOfMovies = movies.Count;
-                Decimal newValue = Convert.ToDecimal(countOfMovies / 8);
-                //decimal test = ;
-                var totalPage= Math.Round(newValue, MidpointRounding.AwayFromZero);
-                
+                decimal countOfMovies = movies.Count;
+                decimal newValue = countOfMovies / 12;
+
+                var totalPage = Math.Ceiling(newValue);
+
                 return new SuccessDataResult<decimal>(totalPage);
             }
         }

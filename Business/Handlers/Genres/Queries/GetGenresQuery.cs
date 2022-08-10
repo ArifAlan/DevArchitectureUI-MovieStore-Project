@@ -12,7 +12,7 @@ namespace Business.Handlers.Genres.Queries
 {
     public class GetGenresQuery : IRequest<IDataResult<IEnumerable<Genre>>>
     {
-        class GetGenresQueryHandler : IRequestHandler<GetGenresQuery, IDataResult<IEnumerable<Genre>>>
+        public class GetGenresQueryHandler : IRequestHandler<GetGenresQuery, IDataResult<IEnumerable<Genre>>>
         {
             private readonly IGenreRepository _genreRepository;
 

@@ -29,7 +29,7 @@ namespace Business.Handlers.Movies.Queries
                 int limit = 12;
                 int skipData;
 
-                if (request.CurrentPage == 1)
+                if (request.CurrentPage == 1 || request.CurrentPage == 0)
                 {
                     skipData = 0;
                 }

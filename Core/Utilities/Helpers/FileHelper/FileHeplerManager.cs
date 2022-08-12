@@ -48,7 +48,7 @@ namespace Core.Utilities.Helpers.FileHelper
                 string filePath = guid + extension;//Dosyanın oluşturduğum adını ve uzantısını yan yana getiriyorum. Mesela metin dosyası ise .txt gibi bu projemizde resim yükyeceğimiz için .jpg olacak uzantılar 
                 using (var image=Image.Load(file.OpenReadStream()))
                 {
-                    string newSize = ImageRezise(image, 270, 360);
+                    string newSize = ImageRezise(image, 625,425 );
                     string[] sizearray = newSize.Split(',');
                    
                     image.Mutate(x => x.Resize(Convert.ToInt32(sizearray[1]), Convert.ToInt32(sizearray[0])));
@@ -61,16 +61,16 @@ namespace Core.Utilities.Helpers.FileHelper
            
             return null;
         }
-        public string ImageRezise(Image img, int MaxWidth, int MaxHeight)
+        public string ImageRezise(Image img, int MaxHeight, int MaxWidth)
         {
             if (img.Width > MaxWidth || img.Height> MaxHeight)
             {
-                double widthratio = (double)img.Width / img.Height;
-                double heightratio = (double)img.Height / img.Width;
+                double widthratio = (double)img.Width / (double)MaxWidth;
+                double heightratio = (double)img.Height /(double) MaxHeight;
                 double ratio = Math.Max(widthratio, heightratio);
                 int newWidth = (int)(img.Width / ratio);
                 int newHeight = (int)(img.Height / ratio);
-                return newHeight.ToString() + " ," + newWidth.ToString();
+                return newWidth.ToString() + " ," + newHeight.ToString();
             }
             else
             {

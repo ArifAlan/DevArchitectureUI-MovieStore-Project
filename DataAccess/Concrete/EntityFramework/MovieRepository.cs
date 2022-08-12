@@ -48,7 +48,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                  where di.MovieId == m.Id
                                                  select new DirectorDto
                                                  {
-                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name).FirstOrDefault(),
+                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name + " " + director.Surname).FirstOrDefault(),
                                                      DirectorId = (from director in Context.Directors where director.Id == di.DirectorId select director.Id).FirstOrDefault()
                                                  }).ToList(),
                                     Genres = (from g in Context.MovieGenres
@@ -91,7 +91,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                  where di.MovieId == m.Id
                                                  select new DirectorDto
                                                  {
-                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name).FirstOrDefault(),
+                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name + " " + director.Surname).FirstOrDefault(),
                                                      DirectorId = (from director in Context.Directors where director.Id == di.DirectorId select director.Id).FirstOrDefault()
                                                  }).ToList(),
                                     Genres = (from g in Context.MovieGenres
@@ -132,7 +132,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                  where di.MovieId == m.Id
                                                  select new DirectorDto
                                                  {
-                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name).FirstOrDefault(),
+                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name + " " + director.Surname).FirstOrDefault(),
                                                      DirectorId = (from director in Context.Directors where director.Id == di.DirectorId select director.Id).FirstOrDefault()
                                                  }).ToList(),
                                     Genres = (from g in Context.MovieGenres
@@ -174,7 +174,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                  where di.MovieId == m.Id
                                                  select new DirectorDto
                                                  {
-                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name).FirstOrDefault(),
+                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name + " " + director.Surname).FirstOrDefault(),
                                                      DirectorId = (from director in Context.Directors where director.Id == di.DirectorId select director.Id).FirstOrDefault()
                                                  }).ToList(),
                                     Genres = (from g in Context.MovieGenres
@@ -217,7 +217,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                 where di.MovieId == m.Id
                                                 select new DirectorDto
                                                 {
-                                                    DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name).FirstOrDefault(),
+                                                    DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name + " " + director.Surname).FirstOrDefault(),
                                                     DirectorId = (from director in Context.Directors where director.Id == di.DirectorId select director.Id).FirstOrDefault()
                                                 }).ToList(),
                                    Genres = (from g in Context.MovieGenres
@@ -260,7 +260,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                  where di.MovieId == m.Id
                                                  select new DirectorDto
                                                  {
-                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name).FirstOrDefault(),
+                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name + " " + director.Surname).FirstOrDefault(),
                                                      DirectorId = (from director in Context.Directors where director.Id == di.DirectorId select director.Id).FirstOrDefault()
                                                  }).ToList(),
                                     Genres = (from g in Context.MovieGenres
@@ -300,7 +300,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                  where di.MovieId == m.Id
                                                  select new DirectorDto
                                                  {
-                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name).FirstOrDefault(),
+                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name+" "+ director.Surname ).FirstOrDefault(),
                                                      DirectorId = (from director in Context.Directors where director.Id == di.DirectorId select director.Id).FirstOrDefault()
                                                  }).ToList(),
                                     Genres = (from g in Context.MovieGenres
@@ -343,7 +343,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                 where di.MovieId == m.Id
                                                 select new DirectorDto
                                                 {
-                                                    DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name).FirstOrDefault(),
+                                                    DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name + " " + director.Surname).FirstOrDefault(),
                                                     DirectorId = (from director in Context.Directors where director.Id == di.DirectorId select director.Id).FirstOrDefault()
                                                 }).ToList(),
                                    Genres = (from g in Context.MovieGenres
@@ -386,7 +386,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                  where di.MovieId == m.Id
                                                  select new DirectorDto
                                                  {
-                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name).FirstOrDefault(),
+                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name + " " + director.Surname).FirstOrDefault(),
                                                      DirectorId = (from director in Context.Directors where director.Id == di.DirectorId select director.Id).FirstOrDefault()
                                                  }).ToList(),
                                     Genres = (from g in Context.MovieGenres
@@ -427,7 +427,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                  where di.MovieId == m.Id
                                                  select new DirectorDto
                                                  {
-                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name).FirstOrDefault(),
+                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name + " " + director.Surname).FirstOrDefault(),
                                                      DirectorId = (from director in Context.Directors where director.Id == di.DirectorId select director.Id).FirstOrDefault()
                                                  }).ToList(),
                                     Genres = (from g in Context.MovieGenres
@@ -468,7 +468,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                  where di.MovieId == m.Id
                                                  select new DirectorDto
                                                  {
-                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name).FirstOrDefault(),
+                                                     DirectorName = (from director in Context.Directors where director.Id == di.DirectorId select director.Name + " " + director.Surname).FirstOrDefault(),
                                                      DirectorId = (from director in Context.Directors where director.Id == di.DirectorId select director.Id).FirstOrDefault()
                                                  }).ToList(),
                                     Genres = (from g in Context.MovieGenres

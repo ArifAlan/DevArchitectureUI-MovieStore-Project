@@ -27,5 +27,9 @@ namespace DataAccess.Abstract
         Task<List<MovieDetailDto>> GetMoviesDetailsByGenreId(int genreId);
 
         Task<List<MovieDetailDto>> GetMoviesDetailsWithPaginationByGenreId(int limit, int skip, int genreId);
+
+        Task<List<MovieDetailDto>> GetMoviesDetailsByActorId(int actorId);
+
+        Task<List<MovieDetailDto>> GetMoviesDetailsWithPaginationByActorId(int limit, int skip, int actorId);   
     }
 }

@@ -212,5 +212,34 @@ namespace WebAPI.Controllers
             return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesDetailsTotalPageByGenreIdQuery { GenreId = genreId }));
         }
 
+        /// <summary>
+        /// List Users
+        /// </summary>
+        /// <remarks>bla bla bla Users</remarks>
+        /// <return>Users List</return>
+        /// <response code="200"></response>
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MovieDetailDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("getmoviesdetailsbyactorid")]
+        public async Task<IActionResult> GetMoviesDetailsByActorId(int actorId, int curentPage)
+        {
+            return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesDetailsByActorIdQuery { ActorId = actorId, CurrentPage = curentPage }));
+        }
+
+        /// <summary>
+        /// List Users
+        /// </summary>
+        /// <remarks>bla bla bla Users</remarks>
+        /// <return>Users List</return>
+        /// <response code="200"></response>
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MovieDetailDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpGet("getmoviesdetailstotalpagesbyactorid")]
+        public async Task<IActionResult> GetMoviesDetailsTotalPagesByActorId(int actorId)
+        {
+            return GetResponseOnlyResultData(await Mediator.Send(new GetMoviesDetailsTotalPageByActorIdQuery { ActorId = actorId }));
+        }
     }
 }

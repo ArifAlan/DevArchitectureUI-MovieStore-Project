@@ -26,7 +26,7 @@ namespace Business.Handlers.Movies.Queries
             {
                 var data = await _movieRepository.GetMoviesDetailsByGenreId(request.GenreId);
                 decimal countOfData = data.Count;
-                decimal newValue = countOfData / 8;
+                decimal newValue = countOfData / 12;
                 decimal total = Math.Ceiling(newValue);
 
                 return new SuccessDataResult<decimal>(total);

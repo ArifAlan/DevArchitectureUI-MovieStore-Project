@@ -48,10 +48,10 @@ namespace Core.Utilities.Helpers.FileHelper
                 string filePath = guid + extension;//Dosyanın oluşturduğum adını ve uzantısını yan yana getiriyorum. Mesela metin dosyası ise .txt gibi bu projemizde resim yükyeceğimiz için .jpg olacak uzantılar 
                 using (var image=Image.Load(file.OpenReadStream()))
                 {
-                    string newSize = ImageRezise(image, 625,425 );
-                    string[] sizearray = newSize.Split(',');
+                    //string newSize = ImageRezise(image, 800,100 );
+                    //string[] sizearray = newSize.Split(',');
                    
-                    image.Mutate(x => x.Resize(Convert.ToInt32(sizearray[1]), Convert.ToInt32(sizearray[0])));
+                    //image.Mutate(x => x.Resize(Convert.ToInt32(sizearray[1]), Convert.ToInt32(sizearray[0])));
                     image.Save(root + filePath);
                 }
                 return filePath;
